@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CRM</string>
+    <string name="customer_bar_name">公司客户</string>
+    <string name="opportunity_bar_name">公司商机</string>
+    <string name="contract_bar_name">公司合同</string>
+    <string name="contacts_bar_name">联系人</string>
+    <string name="product_bar_name">公司产品</string>
 </resources>

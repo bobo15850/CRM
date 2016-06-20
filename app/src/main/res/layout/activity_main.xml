@@ -8,12 +8,52 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".view.activity.MainActivity">
+    tools:context=".view.activity.MainActivity"
+    android:background="#d7d5d5">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView"/>
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/activity_main_bar_height"
+        android:text="@string/customer_bar_name"
+        android:id="@+id/customer_button"
+        android:background="#f97a7a"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/activity_main_bar_height"
+        android:text="@string/opportunity_bar_name"
+        android:id="@+id/opportunity_button"
+        android:background="#f7ac42"
+        android:layout_below="@+id/customer_button"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/activity_main_bar_height"
+        android:text="@string/contract_bar_name"
+        android:id="@+id/contract_button"
+        android:background="#f0e653"
+        android:layout_below="@+id/opportunity_button"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/activity_main_bar_height"
+        android:text="@string/contacts_bar_name"
+        android:id="@+id/contact_button"
+        android:background="#90f57e"
+        android:layout_below="@+id/contract_button"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/activity_main_bar_height"
+        android:text="@string/product_bar_name"
+        android:id="@+id/product_button"
+        android:background="#7e76fb"
+        android:layout_below="@+id/contact_button"
+        android:layout_alignParentStart="true"/>
 
 </RelativeLayout>
