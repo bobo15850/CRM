@@ -8,8 +8,9 @@ import android.widget.Toast;
 
 import com.nju.edu.crm.R;
 import com.nju.edu.crm.presenter.IMainPresenter;
-import com.nju.edu.crm.presenter.impl.MainPresenterImpl;
-import com.nju.edu.crm.view.IMainView;
+import com.nju.edu.crm.presenter.MainPresenterImpl;
+import com.nju.edu.crm.view.iview.IMainView;
+import com.nju.edu.crm.view.activity.customer.CustomerListActivity;
 
 public class MainActivity extends BaseActivity implements IMainView, View.OnClickListener {
     private IMainPresenter mainPresenter;

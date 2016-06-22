@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.nju.edu.crm.view.activity.CustomerListActivity">
+    tools:context=".view.activity.customer.CustomerListActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

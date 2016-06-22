@@ -3,7 +3,7 @@ package com.nju.edu.crm.view.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.nju.edu.crm.view.IBaseView;
+import com.nju.edu.crm.view.iview.IBaseView;
 
 /**
  * Created by 张波波 on 2016-06-22.

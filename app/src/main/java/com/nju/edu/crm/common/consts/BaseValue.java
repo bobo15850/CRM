@@ -11,4 +11,6 @@ public class BaseValue {
     public static final int SUCCESS_RESULT_CODE = 0;//网络请求成功的返回码
 
     public static final int FAILURE_RESUKT_CODE = -1;//网络请求失败的返回码
+
+    public static final int LOGIN_STAFF_ID = 102;//当前登录的员工的id
 }

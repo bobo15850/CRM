@@ -1,4 +1,4 @@
-package com.nju.edu.crm.view.activity;
+package com.nju.edu.crm.view.activity.customer;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -10,9 +10,10 @@ import android.widget.ListView;
 import com.nju.edu.crm.R;
 import com.nju.edu.crm.adapter.CustomerAdapter;
 import com.nju.edu.crm.model.entity.Customer;
-import com.nju.edu.crm.presenter.ICustomerListPresenter;
-import com.nju.edu.crm.presenter.impl.CustomerPresenterImpl;
-import com.nju.edu.crm.view.ICustomerListView;
+import com.nju.edu.crm.presenter.customer.ICustomerListPresenter;
+import com.nju.edu.crm.presenter.customer.impl.CustomerListPresenterImpl;
+import com.nju.edu.crm.view.activity.BaseActivity;
+import com.nju.edu.crm.view.iview.customer.ICustomerListView;
 
 import java.util.List;
 
@@ -29,8 +30,8 @@ public class CustomerListActivity extends BaseActivity implements ICustomerListV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_list);
         initComponent();
-        customerListPresenter = new CustomerPresenterImpl(this);
-        customerListPresenter.initCustomerList();
+        customerListPresenter = new CustomerListPresenterImpl(this);
+        customerListPresenter.initAllCustomerList();
     }
 
     private void initComponent() {
@@ -60,10 +61,10 @@ public class CustomerListActivity extends BaseActivity implements ICustomerListV
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.all_customer_button:
-                Log.d("点击按钮:", "全部客户");
+                customerListPresenter.initAllCustomerList();
                 break;
             case R.id.my_customer_button:
-                Log.d("点击按钮:", "我的客户");
+                customerListPresenter.initMyCustomerList();
                 break;
         }
     }

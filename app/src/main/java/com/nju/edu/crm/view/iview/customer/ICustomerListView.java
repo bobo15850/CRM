@@ -1,6 +1,7 @@
-package com.nju.edu.crm.view;
+package com.nju.edu.crm.view.iview.customer;
 
 import com.nju.edu.crm.model.entity.Customer;
+import com.nju.edu.crm.view.iview.IBaseView;
 
 import java.util.List;
 

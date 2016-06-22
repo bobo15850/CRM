@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="com.nju.edu.crm"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest package="com.nju.edu.crm"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -18,7 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.CustomerListActivity">
+        <activity android:name=".view.activity.customer.CustomerListActivity">
+        </activity>
+        <activity android:name=".view.activity.customer.CustomerDetailActivity">
+        </activity>
+        <activity android:name=".view.activity.customer.CustomerHomeActivity">
         </activity>
     </application>
 

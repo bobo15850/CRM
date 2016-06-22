@@ -1,7 +1,6 @@
-package com.nju.edu.crm.presenter.impl;
+package com.nju.edu.crm.presenter;
 
-import com.nju.edu.crm.presenter.IMainPresenter;
-import com.nju.edu.crm.view.IMainView;
+import com.nju.edu.crm.view.iview.IMainView;
 
 /**
  * Created by 张波波 on 2016-06-20.
