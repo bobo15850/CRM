@@ -1,7 +1,5 @@
 package com.nju.edu.crm.presenter.impl;
 
-import android.util.Log;
-
 import com.nju.edu.crm.common.utils.ResultCallback;
 import com.nju.edu.crm.model.ICustomerInfo;
 import com.nju.edu.crm.model.ModelFactory;
@@ -36,7 +34,6 @@ public class CustomerPresenterImpl implements ICustomerListPresenter {
             customerInfo.getCustomerList(customerList, params, new ResultCallback() {
                 @Override
                 public void success() {
-                    Log.d("success", String.valueOf(Thread.currentThread().getId()));
                     customerListView.initCustomerList(customerList);
                 }
 

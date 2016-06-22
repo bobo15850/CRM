@@ -15,24 +15,13 @@ import okhttp3.Response;
  * Created by 张波波 on 2016-06-22.
  */
 public class HttpUtil {
-    private static HttpUtil instance;
-    private OkHttpClient client;
+    private static OkHttpClient client = new OkHttpClient.Builder()
+            .connectTimeout(BaseValue.BASE_TIME_OUT, TimeUnit.SECONDS)
+            .readTimeout(BaseValue.BASE_TIME_OUT, TimeUnit.SECONDS)
+            .build();
 
-    private HttpUtil() {
-        client = new OkHttpClient.Builder()
-                .connectTimeout(BaseValue.BASE_TIME_OUT, TimeUnit.SECONDS)
-                .readTimeout(BaseValue.BASE_TIME_OUT, TimeUnit.SECONDS)
-                .build();
-    }
 
-    public static HttpUtil getInstance() {
-        if (instance == null) {
-            instance = new HttpUtil();
-        }
-        return instance;
-    }
-
-    public String sendRequest(RemoteMethod remoteMethod, Map<String, String> params) throws IOException {
+    public static String sendRequest(RemoteMethod remoteMethod, Map<String, String> params) throws IOException {
         Request request = remoteMethod.getRequest(params);
         Response response = client.newCall(request).execute();
         return response.body().string();

@@ -31,7 +31,6 @@ public class CustomerListActivity extends BaseActivity implements ICustomerListV
         initComponent();
         customerListPresenter = new CustomerPresenterImpl(this);
         customerListPresenter.initCustomerList();
-        Log.d("onCreate", String.valueOf(Thread.currentThread().getId()));
     }
 
     private void initComponent() {
