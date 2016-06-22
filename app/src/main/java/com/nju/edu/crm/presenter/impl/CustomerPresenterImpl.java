@@ -1,5 +1,8 @@
 package com.nju.edu.crm.presenter.impl;
 
+import android.util.Log;
+
+import com.nju.edu.crm.common.utils.ResultCallback;
 import com.nju.edu.crm.model.ICustomerInfo;
 import com.nju.edu.crm.model.ModelFactory;
 import com.nju.edu.crm.model.entity.Customer;
@@ -7,6 +10,7 @@ import com.nju.edu.crm.presenter.ICustomerListPresenter;
 import com.nju.edu.crm.view.ICustomerListView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,13 +29,24 @@ public class CustomerPresenterImpl implements ICustomerListPresenter {
 
     @Override
     public void initCustomerList() {
-        Map<String, String> params = new HashMap<>();
-        List<Customer> customerList = null;
+        final Map<String, String> params = new HashMap<>();
+        params.put("currentpage", "0");
+        final List<Customer> customerList = new ArrayList<>();
         try {
-            customerList = customerInfo.getCustomerList(params);
+            customerInfo.getCustomerList(customerList, params, new ResultCallback() {
+                @Override
+                public void success() {
+                    Log.d("success", String.valueOf(Thread.currentThread().getId()));
+                    customerListView.initCustomerList(customerList);
+                }
+
+                @Override
+                public void failure() {
+                    customerListView.netWorkError();
+                }
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
-        customerListView.initCustomerList(customerList);
     }
 }

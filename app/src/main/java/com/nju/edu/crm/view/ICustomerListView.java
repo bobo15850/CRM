@@ -7,6 +7,6 @@ import java.util.List;
 /**
  * Created by 张波波 on 2016-06-20.
  */
-public interface ICustomerListView {
+public interface ICustomerListView extends IBaseView {
     void initCustomerList(List<Customer> customerList);
 }

@@ -1,7 +1,6 @@
 package com.nju.edu.crm.view.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +11,7 @@ import com.nju.edu.crm.presenter.IMainPresenter;
 import com.nju.edu.crm.presenter.impl.MainPresenterImpl;
 import com.nju.edu.crm.view.IMainView;
 
-public class MainActivity extends AppCompatActivity implements IMainView, View.OnClickListener {
+public class MainActivity extends BaseActivity implements IMainView, View.OnClickListener {
     private IMainPresenter mainPresenter;
     private Button customerButton;
     private Button opportunityButton;

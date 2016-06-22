@@ -1,7 +1,6 @@
 package com.nju.edu.crm.view.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,7 +16,7 @@ import com.nju.edu.crm.view.ICustomerListView;
 
 import java.util.List;
 
-public class CustomerListActivity extends AppCompatActivity implements ICustomerListView, View.OnClickListener, AdapterView.OnItemClickListener {
+public class CustomerListActivity extends BaseActivity implements ICustomerListView, View.OnClickListener, AdapterView.OnItemClickListener {
     private List<Customer> customerList;
     private ListView listView;
     private Button allCustomerButton;
@@ -32,6 +31,7 @@ public class CustomerListActivity extends AppCompatActivity implements ICustomer
         initComponent();
         customerListPresenter = new CustomerPresenterImpl(this);
         customerListPresenter.initCustomerList();
+        Log.d("onCreate", String.valueOf(Thread.currentThread().getId()));
     }
 
     private void initComponent() {
@@ -46,9 +46,14 @@ public class CustomerListActivity extends AppCompatActivity implements ICustomer
 
     @Override
     public void initCustomerList(List<Customer> customerList) {
-        CustomerAdapter adapter = new CustomerAdapter(CustomerListActivity.this, R.layout.customer_item, customerList);
-        ListView listView = (ListView) this.findViewById(R.id.customer_list);
-        listView.setAdapter(adapter);
+        final CustomerAdapter adapter = new CustomerAdapter(CustomerListActivity.this, R.layout.customer_item, customerList);
+        final ListView listView = (ListView) this.findViewById(R.id.customer_list);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                listView.setAdapter(adapter);
+            }
+        });
         this.customerList = customerList;
     }
 

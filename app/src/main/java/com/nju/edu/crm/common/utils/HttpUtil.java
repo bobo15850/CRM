@@ -35,6 +35,6 @@ public class HttpUtil {
     public String sendRequest(RemoteMethod remoteMethod, Map<String, String> params) throws IOException {
         Request request = remoteMethod.getRequest(params);
         Response response = client.newCall(request).execute();
-        return response.body().toString();
+        return response.body().string();
     }
 }

@@ -1,5 +1,6 @@
 package com.nju.edu.crm.model;
 
+import com.nju.edu.crm.common.utils.ResultCallback;
 import com.nju.edu.crm.model.entity.Customer;
 
 import java.io.IOException;
@@ -11,5 +12,5 @@ import java.util.Map;
  */
 public interface ICustomerInfo {
     //通用查询接口
-    List<Customer> getCustomerList(Map<String, String> params) throws IOException;
+    void getCustomerList(final List<Customer> customerList, Map<String, String> params, ResultCallback callback) throws IOException;
 }
