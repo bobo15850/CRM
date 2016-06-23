@@ -8,7 +8,7 @@ import com.nju.edu.crm.view.iview.IBaseView;
 /**
  * Created by 张波波 on 2016-06-22.
  */
-public class BaseActivity extends AppCompatActivity implements IBaseView {
+public abstract class BaseActivity extends AppCompatActivity implements IBaseView {
     @Override
     public void netWorkError() {
         runOnUiThread(new Runnable() {
@@ -17,6 +17,5 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
                 Toast.makeText(BaseActivity.this, "网络错误", Toast.LENGTH_SHORT);
             }
         });
-
     }
 }

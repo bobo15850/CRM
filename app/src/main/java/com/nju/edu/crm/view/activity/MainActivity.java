@@ -29,7 +29,7 @@ public class MainActivity extends BaseActivity implements IMainView, View.OnClic
     }
 
 
-    private void initComponent() {
+    protected void initComponent() {
         //初始化按钮
         customerButton = (Button) this.findViewById(R.id.customer_button);
         opportunityButton = (Button) this.findViewById(R.id.opportunity_button);

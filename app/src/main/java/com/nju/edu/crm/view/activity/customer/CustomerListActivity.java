@@ -1,7 +1,7 @@
 package com.nju.edu.crm.view.activity.customer;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -11,7 +11,7 @@ import com.nju.edu.crm.R;
 import com.nju.edu.crm.adapter.CustomerAdapter;
 import com.nju.edu.crm.model.entity.Customer;
 import com.nju.edu.crm.presenter.customer.ICustomerListPresenter;
-import com.nju.edu.crm.presenter.customer.impl.CustomerListPresenterImpl;
+import com.nju.edu.crm.presenter.customer.impl.CustomerListPresenter;
 import com.nju.edu.crm.view.activity.BaseActivity;
 import com.nju.edu.crm.view.iview.customer.ICustomerListView;
 
@@ -29,8 +29,8 @@ public class CustomerListActivity extends BaseActivity implements ICustomerListV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_list);
-        initComponent();
-        customerListPresenter = new CustomerListPresenterImpl(this);
+        this.initComponent();
+        customerListPresenter = new CustomerListPresenter(this);
         customerListPresenter.initAllCustomerList();
     }
 
@@ -73,7 +73,8 @@ public class CustomerListActivity extends BaseActivity implements ICustomerListV
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (R.id.customer_list == parent.getId()) {
             Customer customer = customerList.get(position);
-            Log.d("点击条目:", customer.getCustomername());
+            Intent intent = new Intent(CustomerListActivity.this, CustomerHomeActivity.class);
+            startActivity(intent);
         }
     }
 }
