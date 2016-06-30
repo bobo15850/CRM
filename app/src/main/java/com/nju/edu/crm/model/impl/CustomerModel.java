@@ -29,4 +29,24 @@ public class CustomerModel implements ICustomerModel {
         params.put("staffid", String.valueOf(BaseValue.LOGIN_STAFF_ID));
         HttpUtil.queryEntityList(RemoteMethod.common_customer_json, params, Customer.class, customerList, callback);
     }
+
+    @Override
+    public void addCustomer(Customer customer, ResultCallback callback) {
+        final Map<String, String> params = new HashMap<>();
+        params.put("staffid", String.valueOf(BaseValue.LOGIN_STAFF_ID));
+        params.put("customername", customer.getCustomername());
+        params.put("profile", customer.getProfile());
+        params.put("telephone", customer.getTelephone());
+        params.put("address", customer.getAddress());
+        params.put("website", customer.getWebsite());
+        HttpUtil.addEntity(RemoteMethod.customer_create_json, params, callback);
+    }
+
+    @Override
+    public void getCsutomerById(List<Customer> customerList, int customerid, ResultCallback callback) {
+        final Map<String, String> params = new HashMap<>();
+        params.put("currentpage", "0");
+        params.put("customerid", String.valueOf(customerid));
+        HttpUtil.queryEntityList(RemoteMethod.common_customer_json, params, Customer.class, customerList, callback);
+    }
 }

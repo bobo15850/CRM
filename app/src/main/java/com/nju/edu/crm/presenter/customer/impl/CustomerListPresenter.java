@@ -53,4 +53,9 @@ public class CustomerListPresenter implements ICustomerListPresenter {
             }
         });
     }
+
+    @Override
+    public void toAddCustomer() {
+        customerListView.toAddCustomer();
+    }
 }

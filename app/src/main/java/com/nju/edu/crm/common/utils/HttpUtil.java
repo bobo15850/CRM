@@ -24,7 +24,7 @@ public class HttpUtil {
             .build();
 
 
-    public static String sendRequest(RemoteMethod remoteMethod, Map<String, String> params) throws IOException {
+    private static String sendRequest(RemoteMethod remoteMethod, Map<String, String> params) throws IOException {
         Request request = remoteMethod.getRequest(params);
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -39,6 +39,25 @@ public class HttpUtil {
                     ResData resData = JsonUtil.getObject(responseStr, ResData.class);
                     if (resData != null && resData.getResultcode() == BaseValue.SUCCESS_RESULT_CODE) {
                         JsonUtil.fillObjectList(list, responseStr, clazz);
+                        callback.success();
+                    } else {
+                        callback.failure();
+                    }
+                } catch (IOException e) {
+                    callback.failure();
+                }
+            }
+        }).start();
+    }
+
+    public static void addEntity(final RemoteMethod method, final Map<String, String> params, final ResultCallback callback) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String responseStr = HttpUtil.sendRequest(method, params);
+                    ResData resData = JsonUtil.getObject(responseStr, ResData.class);
+                    if (resData != null && resData.getResultcode() == BaseValue.SUCCESS_RESULT_CODE) {
                         callback.success();
                     } else {
                         callback.failure();

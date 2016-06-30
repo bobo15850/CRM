@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface ICustomerListView extends IBaseView {
     void initCustomerList(List<Customer> customerList);
+
+    void toAddCustomer();
 }

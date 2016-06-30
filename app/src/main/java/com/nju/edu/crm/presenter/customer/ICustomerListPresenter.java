@@ -8,4 +8,6 @@ public interface ICustomerListPresenter {
 
     void initMyCustomerList();
 
+    void toAddCustomer();
+
 }

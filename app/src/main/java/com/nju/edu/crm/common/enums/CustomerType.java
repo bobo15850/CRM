@@ -23,6 +23,7 @@ public enum CustomerType {
     }
 
     public static CustomerType getCustomerType(Integer value) {
+        if (value == null) return COMMON;
         switch (value) {
             case 1:
                 return COMMON;

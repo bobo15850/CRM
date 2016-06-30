@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.nju.edu.crm.view.activity.customer.CustomerAddActivity">
+
+    <TextView
+        android:id="@+id/customer_name_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/customer_name_input"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="34dp"
+        android:text="客户名称"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <EditText
+        android:id="@+id/customer_name_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/customer_add_cancle"/>
+
+    <TextView
+        android:id="@+id/customer_profile_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/customer_name_add"
+        android:layout_below="@+id/customer_name_input"
+        android:layout_marginTop="40dp"
+        android:text="客户简介"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <EditText
+        android:id="@+id/customer_profile_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/customer_profile_add"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/customer_phone_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/customer_profile_add"
+        android:layout_below="@+id/customer_profile_add"
+        android:layout_marginTop="54dp"
+        android:text="客户手机"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <EditText
+        android:id="@+id/customer_phone_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/customer_phone_add"
+        android:layout_alignStart="@+id/customer_profile_input"/>
+
+    <TextView
+        android:id="@+id/customer_address_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/customer_phone_add"
+        android:layout_centerVertical="true"
+        android:text="客户地址"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <EditText
+        android:id="@+id/customer_address_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/customer_address_add"
+        android:layout_alignStart="@+id/customer_phone_input"/>
+
+    <TextView
+        android:id="@+id/customer_website_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/customer_address_add"
+        android:layout_below="@+id/customer_address_add"
+        android:layout_marginTop="40dp"
+        android:text="客户主页"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <EditText
+        android:id="@+id/customer_website_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/customer_website_add"
+        android:layout_alignStart="@+id/customer_address_input"/>
+
+    <Button
+        android:id="@+id/customer_add_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="51dp"
+        android:text="确认"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/customer_website_input"/>
+
+    <Button
+        android:id="@+id/customer_add_cancle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/customer_add_confirm"
+        android:layout_toStartOf="@+id/customer_website_input"
+        android:text="取消"/>
+</RelativeLayout>

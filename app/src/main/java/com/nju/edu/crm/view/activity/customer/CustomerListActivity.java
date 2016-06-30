@@ -22,6 +22,7 @@ public class CustomerListActivity extends BaseActivity implements ICustomerListV
     private ListView listView;
     private Button allCustomerButton;
     private Button myCustomerButton;
+    private Button toAddCustomerButton;
 
     private ICustomerListPresenter customerListPresenter;
 
@@ -34,13 +35,16 @@ public class CustomerListActivity extends BaseActivity implements ICustomerListV
         customerListPresenter.initAllCustomerList();
     }
 
+
     private void initComponent() {
         allCustomerButton = (Button) this.findViewById(R.id.all_customer_button);
         myCustomerButton = (Button) this.findViewById(R.id.my_customer_button);
+        toAddCustomerButton = (Button) this.findViewById(R.id.to_add_customer_button);
         listView = (ListView) this.findViewById(R.id.customer_list);
         //添加监听
         allCustomerButton.setOnClickListener(this);
         myCustomerButton.setOnClickListener(this);
+        toAddCustomerButton.setOnClickListener(this);
         listView.setOnItemClickListener(this);
     }
 
@@ -58,6 +62,12 @@ public class CustomerListActivity extends BaseActivity implements ICustomerListV
     }
 
     @Override
+    public void toAddCustomer() {
+        Intent intent = new Intent(CustomerListActivity.this, CustomerAddActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.all_customer_button:
@@ -66,6 +76,8 @@ public class CustomerListActivity extends BaseActivity implements ICustomerListV
             case R.id.my_customer_button:
                 customerListPresenter.initMyCustomerList();
                 break;
+            case R.id.to_add_customer_button:
+                customerListPresenter.toAddCustomer();
         }
     }
 
@@ -74,6 +86,7 @@ public class CustomerListActivity extends BaseActivity implements ICustomerListV
         if (R.id.customer_list == parent.getId()) {
             Customer customer = customerList.get(position);
             Intent intent = new Intent(CustomerListActivity.this, CustomerHomeActivity.class);
+            intent.putExtra("customerid", customer.getCustomerid());
             startActivity(intent);
         }
     }

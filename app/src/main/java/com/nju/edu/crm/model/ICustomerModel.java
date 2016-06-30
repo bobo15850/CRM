@@ -12,4 +12,8 @@ public interface ICustomerModel {
     void getAllCustomersByPage(List<Customer> customerList, int page, ResultCallback callback);
 
     void getMyCustomersByPage(List<Customer> customerList, int page, ResultCallback callback);
+
+    void addCustomer(Customer customer, ResultCallback callback);
+
+    void getCsutomerById(List<Customer> customerList, int customerid, ResultCallback callback);
 }
